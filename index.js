@@ -60,7 +60,7 @@ History.prototype.undoUntilData = function(data) {
   }).toList().push(data);
   var newData = data;
   this.cursor = Cursor.from(data, [], this._onChange);
-  self._emitChange()
+  this._emitChange()
   return data;
 }
 
