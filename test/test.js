@@ -23,26 +23,6 @@ describe('History', function() {
     });
   });
 
-  describe('when updating the cursor', function() {
-    it('calls the callback passed in to the constructor', function(done) {
-      var data = Immutable.fromJS([1,2,3,4]);
-      var i = 0;
-      var h = new History(data, function(c) {
-
-        // only do it the second time around, b/c the constructor calls
-        // this callback
-        if (i == 1) {
-          assert.equal(c.deref().get(0), 100);
-          done();
-        }
-        i++;
-      });
-      h.cursor.update([0], function(old) {
-        return 100;
-      });
-    });
-  });
-
   describe('.history', function() {
     it('contains the original data when the history starts', function() {
       var data = Immutable.fromJS([1,2,3,4]);
